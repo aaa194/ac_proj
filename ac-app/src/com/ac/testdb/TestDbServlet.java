@@ -14,6 +14,8 @@ import java.sql.*;
 /**
  * Servlet implementation class TestDbServlet
  */
+//just to test connection to the database
+//Justo log success if connection is good
 @WebServlet("/TestDbServlet")
 public class TestDbServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
