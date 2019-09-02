@@ -21,16 +21,11 @@
 	<div id="wrapper">
 	
 		<div id="header">
-			<h2>CRM - Customer Relationship Manager</h2>
+			<h2>List of users</h2>
 			<input  hidden="true" name = "senderId" value= "${user.id}">
 		</div>
 	
 	</div>
-	
-	
-		Logged User: <c:out value="${user.User}" />
-
-	
 	
 	<div id="container">
 		

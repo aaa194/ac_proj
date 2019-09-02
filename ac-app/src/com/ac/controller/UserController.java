@@ -63,47 +63,31 @@ public class UserController {
 		
 	}
 	
-	//
+	//get the inputed username and pass and check the credentials
 	@GetMapping("/loginUser")
-	public String loginUser(Model model, User user) {
+	public String loginUser(Model theModel, User theUser) {			
 		
-		
-		
-		loginUser(user, model);
-		
-		return "redirect:/user/list";
-		
-	
-	}
-	
-	//Login user, checking if credentials are ok
-	@PostMapping("/loginUser")
-	public String loginUser(@ModelAttribute("user") User theUser, Model theModel) {
-	
-		String loggedEmail = theUser.getEmail();
-		User loggedUser = userService.getUserByEmail(loggedEmail);
-		System.out.println("ULOGOVANI User JE: " + loggedUser);
-		
-		
+		//Store pass and username that has been sent
 		String sentEmail = theUser.getEmail();
 		String sentPassword = theUser.getPassword();
 		
-		User tempUser = userService.getUserByEmail(sentEmail);
-		
-		
-		//System.out.println("User je: " + tempCustomer);
 		
 		List<User> theUsers = userService.getUsers();
 		
+		//go trough all users
+		//First chesk if username exists in database
+		//if exists then check if passwor id matching
+		//if good credentials allow logging, else stay in login page
 		for (User temp : theUsers) {
 			
 			if(temp.getEmail().equals(sentEmail)) {
 				if(temp.getPassword().equals(sentPassword)) {
 					System.out.println("Successfully logged!!");
-					
+					User tempUser = userService.getUserByEmail(sentEmail);
 					theModel.addAttribute("loggedUser", tempUser);
 					
 					return "redirect:/user/list";
+				
 					
 				}
 			}else {
@@ -113,11 +97,11 @@ public class UserController {
 		}
 		
 		System.out.println("WRONGGGGG!!! Wrong email or password!");
-		return "redirect:/customer/login";
+		return "loginPage";
 		
-		
-	}
 	
+	}
+
 	//Form for updating user
 	@GetMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("userId") int itheId, Model theModel) {
