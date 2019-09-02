@@ -38,9 +38,7 @@ public class UserControllerTest {
 	
 	@Test
 	public void testListUsers() throws Exception {
-		MvcResult mock = this.mockMvc.perform(get("/user/list")).andExpect(status().isOk()).andReturn();
-		String result = mock.getResponse().getContentAsString();
-		assertNotNull(result);
+		fail("Not yet implemented");
 	}
 
 	@Test
