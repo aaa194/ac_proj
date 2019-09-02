@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>Save Customer</title>
+	<title>Save User</title>
 	
 	<link type="text/css"
 			rel="stylesheet"
@@ -17,7 +17,7 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<h2>ser Relationship Manager</h2>
+			<h2>User Form</h2>
 		</div>
 	</div>
 	

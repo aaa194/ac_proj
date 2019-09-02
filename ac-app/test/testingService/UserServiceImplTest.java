@@ -1,14 +1,11 @@
 package testingService;
 
-import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized.Parameter;
-import org.junit.runners.Parameterized.Parameters;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import com.ac.dao.UserDAOImpl;
 import com.ac.service.UserServiceImpl;
 
 
@@ -16,10 +13,14 @@ public class UserServiceImplTest {
 	
 
 	@Test
+	@Autowired
 	public void testGetUsers() {
 		
 		UserServiceImpl tester = new UserServiceImpl();
-		assertNotNull("asdd" ,tester.getUsers());
+		
+		UserDAOImpl tester2 = new UserDAOImpl();
+		
+		assertNotNull("asdd" ,tester2.getUsers());
 	}
 
 	@Test
