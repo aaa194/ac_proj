@@ -2,6 +2,7 @@
     <wb-module deploy-name="ac-app">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Test Recources"/>
         <property name="context-root" value="ac-app"/>
         <property name="java-output-path" value="/ac-app/build/classes"/>
     </wb-module>
