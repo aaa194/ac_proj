@@ -22,13 +22,14 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	//List all users
 	@GetMapping("/list")
 	public String listUsers(Model theModel) {
 		
-		// get customer from the service
+		// get user from the service
 		List<User> theUsers = userService.getUsers();
 		
-		// add the customer to the model
+		// add the user to the model
 		theModel.addAttribute("users", theUsers);
 		
 		//front page with list of all users
@@ -36,6 +37,7 @@ public class UserController {
 		
 	}
 	
+	//Form for adding new user
 	@GetMapping("/showFormForAdd")
 	public String showFormForAdd(Model theModel) {
 		
@@ -47,10 +49,11 @@ public class UserController {
 		return "user-form";
 	}
 	
+	//Saving user to the database
 	@PostMapping("/saveUser")
 	public String saveUser(@ModelAttribute("user") User theUser) {
 		
-		//System.out.println("Customer je: " + theCustomer);
+		//System.out.println("User je: " + theUser);
 		
 		//save the user using our service
 		userService.saveUser(theUser);
@@ -60,7 +63,7 @@ public class UserController {
 		
 	}
 	
-	
+	//
 	@GetMapping("/loginUser")
 	public String loginUser(Model model, User user) {
 		
@@ -73,12 +76,13 @@ public class UserController {
 	
 	}
 	
+	//Login user, checking if credentials are ok
 	@PostMapping("/loginUser")
 	public String loginUser(@ModelAttribute("user") User theUser, Model theModel) {
 	
 		String loggedEmail = theUser.getEmail();
-		User loggedCustomer = userService.getUserByEmail(loggedEmail);
-		System.out.println("ULOGOVANI User JE: " + loggedCustomer);
+		User loggedUser = userService.getUserByEmail(loggedEmail);
+		System.out.println("ULOGOVANI User JE: " + loggedUser);
 		
 		
 		String sentEmail = theUser.getEmail();
@@ -114,13 +118,14 @@ public class UserController {
 		
 	}
 	
+	//Form for updating user
 	@GetMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("userId") int itheId, Model theModel) {
 		
-		//get the cust from the service
+		//get the user from the service
 		User theUser = userService.getUser(itheId);
 		
-		//set cust as model attribute to pre-populate the form
+		//set user as model attribute to pre-populate the form
 		theModel.addAttribute("user", theUser);
 		
 		//send over to our form
@@ -128,6 +133,7 @@ public class UserController {
 		
 	}
 	
+	//Deleting user from database
 	@GetMapping("/delete")
 	public String deleteUser(@RequestParam("userId") int theId) {
 		
@@ -137,6 +143,7 @@ public class UserController {
 		return "redirect:/user/list";
 		
 	}
+	
 	
 	@GetMapping("/login")
 	public String login(Model theModel) {
@@ -150,6 +157,7 @@ public class UserController {
 		return "loginPage";
 	}
 	
+	//get the sign up page
 	@GetMapping("/signUpPage")
 	public String signUpPage() {
 		
@@ -157,14 +165,17 @@ public class UserController {
 		
 	}
 	
+	//Creating new user
 	@PostMapping("/signUpUser")
 	public String signUpUser(@ModelAttribute("user") User theUser) {
 		
+		//gather the info that customer input
 		String sentFirstName = theUser.getFirstName();
 		String sentLastName = theUser.getLastName();
 		String sentEmail = theUser.getEmail();
 		String sentPassword = theUser.getPassword();
 		
+		//create USER with that input in database
 		User temp = new User();
 		temp.setFirstName(sentFirstName);
 		temp.setLastName(sentLastName);

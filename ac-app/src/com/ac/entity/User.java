@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @Table(name="user")
 public class User {
 	
+	//id in db will be generated automatically
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
