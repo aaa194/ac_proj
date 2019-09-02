@@ -18,7 +18,7 @@ import com.ac.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 	
-	// need to inject customer service
+	// need to inject user service
 	@Autowired
 	private UserService userService;
 	
