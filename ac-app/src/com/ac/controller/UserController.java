@@ -33,7 +33,7 @@ public class UserController {
 		theModel.addAttribute("users", theUsers);
 		
 		//front page with list of all users
-		return "list-users";
+		return "listUsers";
 		
 	}
 	
@@ -46,7 +46,7 @@ public class UserController {
 		
 		theModel.addAttribute("user", theUser);
 		
-		return "user-form";
+		return "userForm";
 	}
 	
 	//Saving user to the database
@@ -113,7 +113,7 @@ public class UserController {
 		theModel.addAttribute("user", theUser);
 		
 		//send over to our form
-		return "user-form";
+		return "userForm";
 		
 	}
 	
