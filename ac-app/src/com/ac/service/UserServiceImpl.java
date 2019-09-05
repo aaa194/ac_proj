@@ -5,19 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ac.dao.UserDAO;
+import com.ac.dao.UserDAOImpl;
 import com.ac.entity.User;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl {
 
-	// need to inject customer dao
 	@Autowired
-	private UserDAO userDAO;
+	private UserDAOImpl userDAO;
 	
-	@Override
 	@Transactional
 	public List<User> getUsers() {
 		
@@ -25,7 +23,6 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-	@Override
 	@Transactional
 	public void saveUser(User theUser) {
 		
@@ -33,22 +30,19 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-	@Override
 	@Transactional
 	public User getUser(int itheId) {
 
 			return userDAO.getUser(itheId);
 	}
 
-	@Override
 	@Transactional
 	public void deleteUser(int theId) {
 		
 		userDAO.deleteUser(theId);
 		
 	}
-
-	@Override
+	
 	@Transactional
 	public User getUserByEmail(String sentEmail) {
 
