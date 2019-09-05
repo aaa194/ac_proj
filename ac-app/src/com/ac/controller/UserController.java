@@ -57,7 +57,6 @@ public class UserController {
 		String sentEmail = theUser.getEmail();
 		String sentPassword = theUser.getPassword();
 		
-		
 		List<User> theUsers = userService.getUsers();
 		
 		for (User temp : theUsers) {
@@ -69,7 +68,6 @@ public class UserController {
 					
 					return "redirect:/user/list";
 				
-					
 				}
 			}
 			
