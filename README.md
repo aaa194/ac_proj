@@ -1,3 +1,14 @@
+#Update:
+removed unuseful comments
+deleted .class files and other
+changed .gitignore and tested
+changed names of jsp files(to use same convection)
+deleted interfaces that are implemented only by one class
+deleted System.out.println lines
+removec lib
+removed else branch that is empty
+
+
 # ac_proj
 Na repozitorijumu se trenutno nalazi program koji sam napravio uglavnom u ponedeljak jer preko vikenda nisam stigao da radim zbog neplaniranih obaveza.
 
