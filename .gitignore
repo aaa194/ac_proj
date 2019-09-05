@@ -1,2 +1,11 @@
-/.metadata/
+# Java Files #
+*.jar
+*.war
 *.class
+
+# eclipse specific
+.settings
+.project
+.classpath
+.metadata
+.factorypath
