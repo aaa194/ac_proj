@@ -77,7 +77,6 @@ public class UserController {
 		
 		return "loginPage";
 		
-	
 	}
 
 	@GetMapping("/showFormForUpdate")
@@ -138,5 +137,4 @@ public class UserController {
 	
 	}
 	
-
 }

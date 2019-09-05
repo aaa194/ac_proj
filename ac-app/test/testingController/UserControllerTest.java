@@ -1,40 +1,26 @@
 package testingController;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.Before;
 import org.junit.Test;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.ac.controller.UserController;
-import com.ac.service.UserService;
-
+import com.ac.service.UserServiceImpl;
 
 //@WebAppConfiguration
 //@RunWith(SpringJUnit4ClassRunner.class)
 public class UserControllerTest {
 
 	@Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 	
 	@Autowired
     private UserController userController;
     
 	private MockMvc mockMvc;
 	
-//	@Before
-//	public void setUp() {
-//		MockitoAnnotations.initMocks(this);
-//		mockMvc = MockMvcBuilders.standaloneSetup(userService).build();
-//	}
 	
 	@Test
 	public void testListUsers() throws Exception {

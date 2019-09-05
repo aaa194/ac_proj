@@ -36,7 +36,6 @@ public class TestDbServlet extends HttpServlet {
 			throw new ServletException(e);
 		}
 		
-		
 	}
 
 }
